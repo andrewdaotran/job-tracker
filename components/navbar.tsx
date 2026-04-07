@@ -40,16 +40,11 @@ const Navbar = () => {
 							</Link>
 							<DropdownMenu>
 								<DropdownMenuTrigger>
-									<Button
-										variant='ghost'
-										className='relative h-8 w-8 rounded-full'
-									>
-										<Avatar className='h-8 w-8'>
-											<AvatarFallback className='bg-primary text-white'>
-												{session.user.name[0].toUpperCase()}
-											</AvatarFallback>
-										</Avatar>
-									</Button>
+									<Avatar className='h-8 w-8 rounded-full'>
+										<AvatarFallback className='bg-primary text-white'>
+											{session.user.name[0].toUpperCase()}
+										</AvatarFallback>
+									</Avatar>
 								</DropdownMenuTrigger>
 								<DropdownMenuContent className='w-56' align='end'>
 									<DropdownMenuLabel className='font-normal'>
@@ -63,6 +58,7 @@ const Navbar = () => {
 										</div>
 									</DropdownMenuLabel>
 									<DropdownMenuItem
+										className='hover:bg-primary'
 										onClick={async () => {
 											const result = await signOut()
 											if (result.data) {
