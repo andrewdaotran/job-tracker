@@ -24,7 +24,7 @@ const DEFAULT_COLUMNS = [
 	},
 ]
 
-export async function intializeUserBoard(userId: string) {
+export async function initializeUserBoard(userId: string) {
 	try {
 		await connectDB()
 
