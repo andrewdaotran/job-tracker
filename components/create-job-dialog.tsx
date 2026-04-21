@@ -22,36 +22,42 @@ const CreateJobApplicationDialog = ({
 }: CreateJobApplicationDialogProps) => {
 	return (
 		<Dialog>
-			<Button asChild variant='outline'>
+			<Button
+				asChild
+				variant='outline'
+				className='w-full mb-4 justify-start text-muted-foreground border-dashed border-2 hover:border-solid hover:bg-muted/50'
+			>
 				<DialogTrigger>
-					<Plus />
+					<Plus className='mr-2 h-4 w-4' />
 					Add Job
 				</DialogTrigger>
 			</Button>
-			<DialogContent>
+			<DialogContent className='max-w-2xl'>
 				<DialogHeader>
 					<DialogTitle>Add Job Application</DialogTitle>
 					<DialogDescription>Track a new job application</DialogDescription>
 				</DialogHeader>
-				<form>
-					<div>
-						<div>
-							<div>
-								<Label> Company *</Label>
+				<form className='space-y-4' /* onSubmit={handleSubmit}*/>
+					<div className='space-y-4'>
+						<div className='grid grid-cols-2 gap-4'>
+							<div className='space-y-2'>
+								<Label htmlFor='company'>Company *</Label>
 								<Input id='company' required />
 							</div>
-							<div>
-								<Label> Position *</Label>
+							<div className='space-y-2'>
+								<Label htmlFor='position'>Position *</Label>
 								<Input id='position' required />
 							</div>
 						</div>
-						<div>
-							<Label> Location</Label>
-							<Input id='location' />
-						</div>
-						<div>
-							<Label> Salary</Label>
-							<Input id='salary' />
+						<div className='grid grid-cols-2 gap-4'>
+							<div className='space-y-2'>
+								<Label htmlFor='location'>Location</Label>
+								<Input id='location' />
+							</div>
+							<div className='space-y-2'>
+								<Label htmlFor='salary'>Salary</Label>
+								<Input id='salary' />
+							</div>
 						</div>
 					</div>
 				</form>
