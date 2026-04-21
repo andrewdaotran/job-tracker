@@ -4,12 +4,14 @@ import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
+	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
 } from './ui/dialog'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import { Textarea } from './ui/textarea'
 
 interface CreateJobApplicationDialogProps {
 	columnId: string
@@ -22,16 +24,15 @@ const CreateJobApplicationDialog = ({
 }: CreateJobApplicationDialogProps) => {
 	return (
 		<Dialog>
-			<Button
-				asChild
-				variant='outline'
-				className='w-full mb-4 justify-start text-muted-foreground border-dashed border-2 hover:border-solid hover:bg-muted/50'
-			>
-				<DialogTrigger>
+			<DialogTrigger asChild>
+				<Button
+					variant='outline'
+					className=' mb-4 justify-start text-muted-foreground border-dashed border-2 hover:border-solid hover:bg-muted/50'
+				>
 					<Plus className='mr-2 h-4 w-4' />
 					Add Job
-				</DialogTrigger>
-			</Button>
+				</Button>
+			</DialogTrigger>
 			<DialogContent className='max-w-2xl'>
 				<DialogHeader>
 					<DialogTitle>Add Job Application</DialogTitle>
@@ -56,10 +57,39 @@ const CreateJobApplicationDialog = ({
 							</div>
 							<div className='space-y-2'>
 								<Label htmlFor='salary'>Salary</Label>
-								<Input id='salary' />
+								<Input id='salary' placeholder='e.g., $100k - $150k' />
 							</div>
 						</div>
+
+						{/*  */}
+						<div className='space-y-2'>
+							<Label htmlFor='jobUrl'>Job URL</Label>
+							<Input id='jobUrl' placeholder='https://...' />
+						</div>
+						<div className='space-y-2'>
+							<Label htmlFor='tags'>Tags (comma-separated)</Label>
+							<Input id='tags' placeholder='React, Tailwind, High Pay' />
+						</div>
+						<div className='space-y-2'>
+							<Label htmlFor='description'>Description</Label>
+							<Textarea
+								id='description'
+								rows={3}
+								placeholder='Brief description of the role...'
+							/>
+						</div>
+						<div className='space-y-2'>
+							<Label htmlFor='notes'>Notes</Label>
+							<Textarea id='Notes' rows={4} placeholder='' />
+						</div>
 					</div>
+
+					<DialogFooter>
+						<Button type='button' variant='outline'>
+							Cancel
+						</Button>
+						<Button type='submit'>Add Application</Button>
+					</DialogFooter>
 				</form>
 			</DialogContent>
 		</Dialog>
